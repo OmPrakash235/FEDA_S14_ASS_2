@@ -1,0 +1,45 @@
+<!-- Create 3 custom directives for a pop up and restrict the use of that directive as a
+directive, comment, element, attribute. -->
+
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS Custom Directives</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var module = angular.module("myApp", []);
+			
+			module.controller("newCtrl", function($scope){
+			});
+			
+			module.directive('newDirElement', function(){
+				return {
+					restrict: 'E',
+					template: 'Element Directive'
+				}
+			});
+			module.directive('newDirAttribute', function(){
+				return {
+					restrict: 'A',
+					template: 'Attribute Directive'
+				}
+			});
+			module.directive('newDirClass', function(){
+				return {
+					restrict: 'C',
+					template: 'Class Directive'
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div ng-controller="newCtrl">
+			
+			<new-dir-element></new-dir-element><br/><br/>
+			
+			<span new-dir-attribute></span><br/><br/>
+			
+			<span class="new-dir-class"></span><br/><br/>
+			
+		</div>
+	</body>
+</html>
